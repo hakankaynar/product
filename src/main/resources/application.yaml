@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      host: product-mongodb
+      username: product_app
+      password: pr0duc7!
+      database: product

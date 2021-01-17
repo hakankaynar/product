@@ -1,0 +1,24 @@
+Local Kubernetes
+mkctl version -- shows version
+
+mkctl run product-mongodb \
+--env="MONGO_INITDB_ROOT_USERNAME=hakan" \
+--env="MONGO_INITDB_ROOT_PASSWORD=kay1983nar" \
+--env="MONGO_INITDB_DATABASE=product" \
+--port=27017 \
+--image=mongo:latest
+
+
+how to delete
+mkctl delete pod product-mongodb
+
+
+4 type of services
+ClusterIP: own dns in CoreDNS, virtual ip address. pods talk to each other with it. only reachible inside cluster. Good in cluster
+NodePort: designed for outside of cluster. You get a high port allocated for a node. Anyone can connect
+LoadBalancer: Controls an LB endpoint external to the cluster.Only available if infra provides (like aws elastic lb)
+External name: Adds CNAME DNS record in CoreDNS. like if you are doing migration
+
+
+mkctl expose deployment httpenv --port 8888 -- for cluster ip -- to access from cluster.
+mkctl expose deployment httpenv --port 8888 --name httpenv-np --type NodePort -- for nodeport. to access from local
