@@ -29,7 +29,7 @@ docker push hakankaynar/product:latest
 
 How to run application on AWS EC2
 ssh -i "hakan-ubuntu.pem" ubuntu@3.120.26.13
-sudo docker run -it --rm --name random-hakan -p 8080:8080 hakankaynar/product
+sudo docker run -it --rm --name random-hakan -p 8080:8080 hakankaynar/product 
 
 
 
