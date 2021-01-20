@@ -1,7 +1,14 @@
 On AWS
 host1: docker swarm init
 host2: docker swarm join --token <your_token> <your_ip_address>:2377
+
+docker stack deploy --compose-file docker-compose.yml product-stack
+
+docker stack rm stackdemo
+
+
 host1: docker network create --driver=overlay --attachable product-net
+
 
 docker service create --replicas 1 \
 --name product-mongodb \
