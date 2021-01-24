@@ -9,6 +9,10 @@ mkctl run product-mongodb \
 --image=mongo:latest
 
 
+mkctl apply -f configmaps.yaml
+mkctl apply -f pod.mongo.yaml
+
+
 how to delete
 mkctl delete pod product-mongodb
 
