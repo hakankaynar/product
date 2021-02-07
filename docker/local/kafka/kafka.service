@@ -1,0 +1,14 @@
+[Unit]
+Description=Apache Kafka Server
+Documentation=http://kafka.apache.org/documentation.html
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+ExecStart=/opt/devel/kafka/bin/kafka-server-start.sh /opt/devel/kafka/config/server.properties
+ExecStop=/opt/devel/kafka/bin/kafka-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
